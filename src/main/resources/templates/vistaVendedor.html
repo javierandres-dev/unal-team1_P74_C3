@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+            <title>Listado vendedores</title>
+            <meta charset="UTF-8"> </meta>
+    </head>
+    <body>
+        <!--<div th:text="${vendedores}"></div>-->
+        <div class="container">
+            <!--<div th:text="${productos}"></div>-->
+            <h1 class="text-center m-5">
+                MI EMPRESA
+            </h1>
+            <h2 class="mb-3">
+                Listado de vendedores
+            </h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr th:each="vendedor: ${vendedores}">
+                        <td th:text="${vendedor.codVendedor}" />
+                        <td th:text="${vendedor.nombreVendedor}" />
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+                <a href="/">Regresar al índice</a>
+            </div>
+    </body>
+</html>
