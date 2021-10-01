@@ -24,20 +24,24 @@
                 </div>
             </header>
             <h2 class="mb-3">
-                Listado de vendedores
+                Listado de facturas
             </h2>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Código</th>
-                        <th scope="col">Nombre</th>
+                        <th scope="col">Número factura</th>
+                        <th scope="col">Código producto</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Código vendedor</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    <tr th:each="vendedor: ${vendedores}">
-                        <td th:text="${vendedor.codVendedor}" />
-                        <td th:text="${vendedor.nombreVendedor}" />
+                    <tr th:each="factura: ${facturas}">
+                        <td th:text="${factura.numeroFactura}" />
+                        <td th:text="${factura.codigoProducto}" />
+                        <td th:text="${factura.fechaVenta}" />
+                        <td th:text="${factura.codigoVendedor}" />
                     </tr>
                 </tbody>
             </table>

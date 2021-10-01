@@ -1,13 +1,8 @@
 package com.miempresa.aplicacion.modelos;
 
-import java.util.List;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.CrudRepository;
 
-
-
-
-public interface RepositorioVendedor extends Repository<Vendedor,String> {
+public interface RepositorioVendedor extends CrudRepository<Vendedor,String> {
     
-    List <Vendedor> findAll();
     Vendedor findByCodVendedor(String codVendedor);
 }

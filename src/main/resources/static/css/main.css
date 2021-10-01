@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'Bubblegum-Sans';
+    src: url('/fonts/BubblegumSans-Regular.ttf');
+}
+
+body{
+    background-color: lightgrey;
+    font-size: 16px;
+    line-height: 40px;
+}
+
+header{
+    margin: 3rem 0;
+}
+
+a{
+    color: #ED2568;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+a:hover{
+    color: #4263B5;
+}
+
+h1, h2 {
+  color: #4263B5;
+  margin: 0 auto;
+  font-family: Bubblegum-Sans !important;
+}
+
+h1 {
+  text-shadow: -2px 1px 0 #ED2568, -14px 7px 0 white;
+  font-size: 4rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.btn-primary {
+    background-color: #ED2568;
+    border-color: #ED2568;
+}
+
+.container{
+    background-color: white;
+    padding: 25px;
+}
+
+.div-logo{
+    position: relative;
+}
+
+#logo-empresa{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
