@@ -2,10 +2,8 @@ package com.miempresa.aplicacion.controladores;
 
 import com.miempresa.aplicacion.modelos.Producto;
 import com.miempresa.aplicacion.modelos.RepositorioProducto;
-import com.miempresa.aplicacion.modelos.Vendedor;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

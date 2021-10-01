@@ -18,4 +18,5 @@ import lombok.ToString;
 public class Vendedor {
     @Getter @Setter @Id @Column(name = "cod_vendedor") private String codVendedor;
     @Getter @Setter @Column(name = "nombre_vendedor")  private String nombreVendedor;
+
 }

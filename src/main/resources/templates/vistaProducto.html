@@ -3,19 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
     <head>
+        <title>Índice</title>
+        <meta charset="UTF-8"> </meta>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
-            <title>Listado productos</title>
-            <meta charset="UTF-8"> </meta>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
         <div class="container">
-            <!--<div th:text="${productos}"></div>-->
-            <h1 class="text-center m-5">
-                MI EMPRESA
-            </h1>
+            <header>
+                <div class="row">
+                    <div class="offset-2 col-4">
+                         <h1 class="text-center m-2">
+                            The team 1 - Factory
+                        </h1>
+                    </div>
+                    <div class="div-logo col-4 text-center">   
+                        <img id="logo-empresa" class="img-fluid" src="/images/logo_empresa.png" alt=""/>
+                    </div>
+                </div>
+            </header>
             <h2 class="mb-3">
                 Listado de productos
             </h2>
