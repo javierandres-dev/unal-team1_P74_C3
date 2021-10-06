@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Crear Factura</title>
+        <meta charset="UTF-8"> </meta>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="row">
+                    <div class="offset-2 col-4">
+                         <h1 class="text-center m-2">
+                            The team 1 - Factory
+                        </h1>
+                    </div>
+                    <div class="div-logo col-4 text-center">   
+                        <img id="logo-empresa" class="img-fluid" src="/images/logo_empresa.png" alt=""/>
+                    </div>
+                </div>
+            </header>
+            <h2 class="my-3">
+                <ul><li> Agregar factura </li></ul>
+            </h2>
+            
+            <form th:action = "@{/crear/factura}" th:object="${factura}" method="post">
+                <div class="form-row">
+                    <div class="offset-3 col-6 p-1">
+                        <input type="text" id="idventa" class="form-control" placeholder="Id venta" th:field="*{idVenta}">
+                    </div>
+                    <div class="offset-3 col-6 p-1">
+                        <input type="text" id="numerofactura" class="form-control" placeholder="Número de factura" th:field="*{numeroFactura}">
+                    </div>
+                    <div class="offset-3 col-6 p-1">
+                        <input type="text" id="codigoproducto" class="form-control" placeholder="Código del producto" th:field="*{codigoProducto}">
+                    </div>
+                     <div class="offset-3 col-6 p-1">
+                        <input type="text" id="fechaventa" class="form-control" placeholder="Fecha de la venta" th:field="*{fechaVenta}">
+                    </div>  
+                     <div class="offset-3 col-6 p-1">
+                        <input type="text" id="codigovendedor" class="form-control" placeholder="Código del vendedor" th:field="*{codigoVendedor}">
+                    </div>  
+                
+                </div>
+                <div class="offset-4 col-4 my-2 text-center">
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </div>
+            </form>
+
+            <h2 class="mb-3">
+                <ul><li> Borrar producto </li></ul>
+            </h2>
+            <p><-- (No tocar) --></p>
+
+            <form th:action = "@{/crear/factura}" th:object="${factura}" method="post">
+                <div class="form-row">
+                  <div class="offset-3 col-6 p-1">
+                    <input type="text" id="idventa" class="form-control" placeholder="Id Venta" th:field="*{idVenta}">
+                  </div>
+                </div>
+                <div class="offset-4 col-4 my-2 text-center">
+                    <button type="submit" class="btn btn-primary">Borrar</button>
+                </div>
+            </form>
+            
+            
+            <div class="text-right mt-3">
+                <a href="/">Regresar al índice</a>
+            </div>
+        </div> 
+    </body>
+</html>
