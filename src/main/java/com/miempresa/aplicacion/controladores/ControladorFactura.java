@@ -29,5 +29,19 @@ public class ControladorFactura {
         return "vistaFactura";
     }
     
+    @GetMapping("/crear/facturas") //path del controlador
+    public String crearVendedor(Model model){
+        model.addAttribute("vendedor",new Vendedor());
+        return "vistaCrearVendedor";
+    }        
+    @PostMapping("/crear/facturas")
+    public RedirectView procesarVendedor(@ModelAttribute Vendedor vendedor) {
+        Vendedor vendedorGuardado;
+        vendedorGuardado = repositorioVendedor.save(vendedor);
+        if (vendedorGuardado == null){
+            return new RedirectView("/crear/vendedor", true);
+        }
+        return new RedirectView("/vendedores/"+vendedorGuardado.getCodVendedor(),true);
+    }
     
 }
