@@ -1,6 +1,5 @@
 package com.miempresa.aplicacion.controladores;
 
-import com.miempresa.aplicacion.modelos.RepositorioVendedor;
 import com.miempresa.aplicacion.modelos.Vendedor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

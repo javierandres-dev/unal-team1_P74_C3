@@ -1,7 +1,7 @@
 package com.miempresa.aplicacion.controladores;
 
-import com.miempresa.aplicacion.modelos.RepositorioFactura;
 import com.miempresa.aplicacion.modelos.Factura;
+import com.miempresa.aplicacion.modelos.Vendedor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
