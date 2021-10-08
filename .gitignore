@@ -35,3 +35,6 @@ build/
 
 ### DB connection configuration ###
 src/main/resources/application.yml
+
+### Deploy files ###
+src/main/webapp
