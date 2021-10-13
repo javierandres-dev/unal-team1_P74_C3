@@ -1,5 +1,6 @@
 package com.miempresa.aplicacion.controladores;
 
+import com.miempresa.aplicacion.modelos.RepositorioFactura;
 import com.miempresa.aplicacion.modelos.Factura;
 import com.miempresa.aplicacion.modelos.Vendedor;
 import lombok.RequiredArgsConstructor;

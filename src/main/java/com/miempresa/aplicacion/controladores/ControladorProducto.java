@@ -1,5 +1,6 @@
 package com.miempresa.aplicacion.controladores;
 
+import com.miempresa.aplicacion.modelos.RepositorioProducto;
 import com.miempresa.aplicacion.modelos.Producto;
 import java.util.ArrayList;
 import java.util.List;

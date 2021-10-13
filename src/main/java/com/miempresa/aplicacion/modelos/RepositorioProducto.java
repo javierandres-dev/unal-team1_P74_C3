@@ -1,4 +1,4 @@
-package com.miempresa.aplicacion.controladores;
+package com.miempresa.aplicacion.modelos;
 
 import com.miempresa.aplicacion.modelos.Producto;
 import org.springframework.data.repository.CrudRepository;
