@@ -26,13 +26,13 @@ public class Producto {
     @Getter
     @Setter
     @Column(name = "nombre_producto")
-    private String nombreProducto ;
-    
+    private String nombreProducto;
+
     @Getter
     @Setter
     @Column(name = "descripcion_producto")
     private String descripcionProducto;
-    
+
     @Getter
     @Setter
     @Column(name = "precio_producto")

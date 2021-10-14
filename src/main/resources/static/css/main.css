@@ -14,27 +14,6 @@ header{
     margin: 3rem 0;
 }
 
-a{
-    color: #ED2568;
-    text-decoration: none;
-}
-
-a:hover{
-    color: #ED2568;
-    font-weight: 600;
-}
-
-
-
-li, li a{
-    color: #4263B5;
-}
-
-li a:hover{
-    color: #4263B5;
-    font-weight: 600;
-}
-
 h1, h2 {
   color: #4263B5;
   margin: 0 auto;
@@ -46,12 +25,6 @@ h1 {
   text-shadow: -2px 1px 0 #ED2568, -14px 7px 0 white;
   font-size: 2.5rem;
   text-align: center;
-}
-
-
-.btn-primary {
-    background-color: #ED2568;
-    border-color: #ED2568;
 }
 
 .container{

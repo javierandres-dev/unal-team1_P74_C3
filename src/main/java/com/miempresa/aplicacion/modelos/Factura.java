@@ -10,6 +10,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import java.util.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,14 +21,28 @@ import java.util.Date;
 @Entity
 @Table(name="t_ventas")
 public class Factura {
-    @Getter @Setter @Id @Column(name = "id_venta")
-    private Integer idVenta;
-    @Getter @Setter @Column(name = "numero_factura")
+    @Getter
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id_venta")
+    private Long idVenta;
+    
+    @Getter
+    @Setter @Column(name ="numero_factura")
     private String numeroFactura;
-    @Getter @Setter @Column(name = "cod_producto")
-    private String codigoProducto;
-    @Getter @Setter @Column(name = "fecha_venta")
+    
+    @Getter    
+    @Setter @ManyToOne(optional = false) @JoinColumn(name = "cod_producto")
+    private Producto producto;
+    
+    @Getter 
+    @Setter @Column(name = "fecha_venta")  
     private Date fechaVenta; 
-    @Getter @Setter @Column(name = "cod_vendedor")
-    private String codigoVendedor;
+    
+    @Getter
+    @Setter @ManyToOne(optional = false) @JoinColumn(name = "cod_vendedor") 
+    private Vendedor vendedor;
+    
+    @Getter
+    @Setter @Column(name = "valor_factura") 
+    private Float valorFactura;
 }
