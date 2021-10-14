@@ -54,15 +54,31 @@ public class ControladorProducto {
         return new RedirectView("/productos/" + productoGuardado.getCodProducto(), true);
     }
 
-    @GetMapping("/actualizar/producto") //path del controlador
-    public String actualizarProducto(Model model) {
-        model.addAttribute("producto", new Producto());
+    @GetMapping("/productos/actualizar/{codigoProducto}") //path del controlador
+    public String updateProductoById(@PathVariable String codigoProducto, Model model) {
+        List<String> listaProducto = new ArrayList<>();
+        listaProducto.add(codigoProducto);
+        Iterable<Producto> productos = repositorioProducto.findAllById(listaProducto);
+        model.addAttribute("productos", productos);
         return "vistaActualizarProducto";
     }
 
-    @GetMapping("/eliminar/producto") //path del controlador
-    public String eliminarProducto(Model model) {
-        model.addAttribute("producto", new Producto());
+    @PostMapping("/productos/actualizar/{codigoProducto}")
+    public RedirectView postProducto(@ModelAttribute Producto producto) {
+        Producto productoGuardado;
+        productoGuardado = repositorioProducto.save(producto);
+        if (productoGuardado == null) {
+            return new RedirectView("/crear/producto", true);
+        }
+        return new RedirectView("/productos/" + productoGuardado.getCodProducto(), true);
+    }
+    
+    @GetMapping("/productos/eliminar/{codigoProducto}") //path del controlador
+    public String removeProductoById(@PathVariable String codigoProducto, Model model) {
+        List<String> listaProducto = new ArrayList<>();
+        listaProducto.add(codigoProducto);
+        Iterable<Producto> productos = repositorioProducto.findAllById(listaProducto);
+        model.addAttribute("productos", productos);
         return "vistaEliminarProducto";
     }
 
