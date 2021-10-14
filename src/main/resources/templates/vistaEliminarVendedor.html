@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Actualizar vendedor</title>
+    <title>Eliminar vendedor</title>
     <meta charset="UTF-8">
     </meta>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
@@ -28,11 +28,11 @@
         </header>
         <h2 class="my-3">
             <ul>
-                <li>Actualizar vendedor </li>
+                <li>Eliminar vendedor </li>
             </ul>
         </h2>
 
-        <form th:action="@{/crear/vendedor}" th:object="${vendedor}" method="post">
+<!--        <form th:action="@{/crear/vendedor}" th:object="${vendedor}" method="post">
             <div class="form-row">
                 <div class="offset-3 col-6 p-1">
                     <input type="text" id="codigovendedor" class="form-control" placeholder="Código vendedor"
@@ -43,11 +43,11 @@
                         th:field="*{nombreVendedor}">
                 </div>
             </div>
-            <div class="offset-4 col-4 my-2 text-center">
-                <button type="submit" class="btn btn-success mx-3">Actualizar</button>
-                <a class="btn btn-success" href="/" role="button">Regresar al menú</a>
-            </div>
-        </form>
+        </form>-->
+        <div class="offset-4 col-4 my-2 text-center">
+            <button type="submit" class="btn btn-danger mx-3">Eliminar</button>
+            <a class="btn btn-success" href="/vendedores/" role="button">Regresar</a>
+        </div>
 
     </div>
 </body>
