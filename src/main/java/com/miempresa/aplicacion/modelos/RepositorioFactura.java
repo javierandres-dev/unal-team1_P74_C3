@@ -1,9 +1,9 @@
-package com.miempresa.aplicacion.controladores;
+package com.miempresa.aplicacion.modelos;
 
 import com.miempresa.aplicacion.modelos.Factura;
 import org.springframework.data.repository.CrudRepository;
 
-public interface RepositorioFactura extends CrudRepository<Factura,String> {
-    
+public interface RepositorioFactura extends CrudRepository<Factura, Long> {
+
     Factura findByNumeroFactura(String numeroFactura);
 }

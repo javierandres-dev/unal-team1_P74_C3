@@ -14,9 +14,18 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name="t_vendedores")
+@Table(name = "t_vendedores")
 public class Vendedor {
-    @Getter @Setter @Id @Column(name = "cod_vendedor") private String codVendedor;
-    @Getter @Setter @Column(name = "nombre_vendedor")  private String nombreVendedor;
+
+    @Getter
+    @Setter
+    @Id
+    @Column(name = "cod_vendedor")
+    private String codVendedor;
+
+    @Getter
+    @Setter
+    @Column(name = "nombre_vendedor")
+    private String nombreVendedor;
 
 }

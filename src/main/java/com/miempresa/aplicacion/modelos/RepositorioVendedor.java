@@ -1,9 +1,9 @@
-package com.miempresa.aplicacion.controladores;
+package com.miempresa.aplicacion.modelos;
 
 import com.miempresa.aplicacion.modelos.Vendedor;
 import org.springframework.data.repository.CrudRepository;
 
-public interface RepositorioVendedor extends CrudRepository<Vendedor,String> {
-    
+public interface RepositorioVendedor extends CrudRepository<Vendedor, String> {
+
     Vendedor findByCodVendedor(String codVendedor);
 }
