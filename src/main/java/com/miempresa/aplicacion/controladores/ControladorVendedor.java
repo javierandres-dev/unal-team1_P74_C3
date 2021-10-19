@@ -2,6 +2,8 @@ package com.miempresa.aplicacion.controladores;
 
 import com.miempresa.aplicacion.modelos.RepositorioVendedor;
 import com.miempresa.aplicacion.modelos.Vendedor;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,27 +40,32 @@ public class ControladorVendedor {
         model.addAttribute("vendedor", new Vendedor());
         return "vistaCrearVendedor";
     }
-
-    @PostMapping("/crear/vendedor")
-    public RedirectView procesarVendedor(@ModelAttribute Vendedor vendedor) {
-        Vendedor vendedorGuardado;
-        vendedorGuardado = repositorioVendedor.save(vendedor);
-        if (vendedorGuardado == null) {
-            return new RedirectView("/crear/vendedor", true);
-        }
-        return new RedirectView("/vendedores/" + vendedorGuardado.getCodVendedor(), true);
-    }
-
-    @GetMapping("/actualizar/vendedor") //path del controlador
-    public String actualizarVendedor(Model model) {
-        model.addAttribute("vendedor", new Vendedor());
+    
+    @GetMapping("/vendedores/actualizar/{codigoVendedor}") //path del controlador
+    public String updateVendedorById(@PathVariable String codigoVendedor, Model model) {
+        List<String> listaVendedor = new ArrayList<>();
+        listaVendedor.add(codigoVendedor);
+        Iterable<Vendedor> vendedores = repositorioVendedor.findAllById(listaVendedor);
+        model.addAttribute("vendedores", vendedores);
         return "vistaActualizarVendedor";
     }
 
-    @GetMapping("/eliminar/vendedor") //path del controlador
-    public String eliminarVendedor(Model model) {
-        model.addAttribute("vendedor", new Vendedor());
-        return "vistaEliminarVendedor";
+    @PostMapping("/vendedores/actualizar/{codigoVendedor}")
+    public RedirectView postVendedor(@ModelAttribute Vendedor Vendedor) {
+        Vendedor VendedorGuardado;
+        VendedorGuardado = repositorioVendedor.save(Vendedor);
+        if (VendedorGuardado == null) {
+            return new RedirectView("/crear/Vendedor", true);
+        }
+        return new RedirectView("/vendedores/" + VendedorGuardado.getCodVendedor(), true);
     }
 
+    @GetMapping("/vendedores/eliminar/{codigoVendedor}") //path del controlador
+    public String removeVendedorById(@PathVariable String codigoVendedor, Model model) {
+        List<String> listaVendedor = new ArrayList<>();
+        listaVendedor.add(codigoVendedor);
+        Iterable<Vendedor> vendedores = repositorioVendedor.findAllById(listaVendedor);
+        model.addAttribute("vendedores", vendedores);
+        return "vistaEliminarVendedor";
+    }
 }

@@ -45,4 +45,8 @@ public class Factura {
     @Getter
     @Setter @Column(name = "valor_factura") 
     private Float valorFactura;
+
+    public String getCodFactura() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

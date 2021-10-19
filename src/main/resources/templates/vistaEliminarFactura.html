@@ -32,7 +32,7 @@
             </ul>
         </h2>
 
-        <form th:action="@{/crear/factura}" th:object="${factura}" method="post">
+<!--        <form th:action="@{/crear/factura}" th:object="${factura}" method="post">
             <div class="form-row">
                 <div class="offset-3 col-6 p-1">
                     <input type="text" id="numerofactura" class="form-control" placeholder="Número de factura"
@@ -55,11 +55,11 @@
                         th:field="*{valorFactura}">
                 </div>
             </div>
-            <div class="offset-4 col-4 my-2 text-center">
-                <button type="submit" class="btn btn-warning mx-3">Eliminar</button>
-                <a class="btn btn-warning" href="/" role="button">Regresar al menú</a>
-            </div>
-        </form>
+        </form>-->
+        <div class="offset-4 col-4 my-2 text-center">
+            <button type="submit" class="btn btn-danger mx-3">Eliminar</button>
+            <a class="btn btn-warning" href="/facturas/" role="button">Regresar</a>
+        </div>
     </div>
 </body>
 

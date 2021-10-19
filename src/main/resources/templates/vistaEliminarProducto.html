@@ -26,36 +26,36 @@
         </div>
       </div>
     </header>
-    <h2 class="my-3">
-      <ul>
-        <li>Eliminar producto </li>
-      </ul>
-    </h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Precio</th>
+ 
+                </tr>
+            </thead>
+                  <tbody>
+                <tr th:each="producto: ${productos}">
+    <h3 class="my-3 text-center">
+        <p> Eliminar producto:
+            <B th:text=${producto.codProducto}></B>
+        </p>
+    </h3>
 
-    <form th:action="@{/crear/producto}" th:object="${producto}" method="post">
-      <div class="form-row">
-        <div class="offset-3 col-6 p-1">
-          <input type="text" id="codigoproducto" class="form-control" placeholder="Código producto"
-            th:field="*{codProducto}">
+                    <td th:text="${producto.nombreProducto}" />
+                    <td th:text="${producto.descripcionProducto}" />
+                    <td th:text="${producto.precioProducto}" />
+ 
+                </tr>
+            </tbody>
+        </table>
+
+
+        <div class="offset-4 col-4 my-2 text-center">
+          <button type="submit" class="btn btn-secondary mx-3">Eliminar</button>
+          <a class="btn btn-secondary" href="/productos/" role="button">Regresar</a>
         </div>
-        <div class="offset-3 col-6 p-1">
-          <input type="text" id="nombreproducto" class="form-control" placeholder="Nombre producto"
-            th:field="*{nombreProducto}">
-        </div>
-        <div class="offset-3 col-6 p-1">
-          <input type="text" id="descripcionproducto" class="form-control" placeholder="Descripción del producto"
-            th:field="*{descripcionProducto}">
-        </div>
-        <div class="offset-3 col-6 p-1">
-          <input type="text" id="precioproducto" class="form-control" placeholder="Precio producto"
-            th:field="*{precioProducto}">
-        </div>
-      </div>
-      <div class="offset-4 col-4 my-2 text-center">
-        <button type="submit" class="btn btn-secondary mx-3">Eliminar</button>
-        <a class="btn btn-secondary" href="/" role="button">Regresar al menú</a>
-      </div>
-    </form>
   </div>
 </body>
 

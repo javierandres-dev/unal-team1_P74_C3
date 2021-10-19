@@ -36,6 +36,8 @@
                     <th scope="col">Código producto</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">Código vendedor</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,10 +47,18 @@
                     <td th:text="${factura.producto.codProducto}" />
                     <td th:text="${factura.fechaVenta}" />
                     <td th:text="${factura.vendedor.codVendedor}" />
+                    <td>
+                        <a class="btn btn-success" th:href="@{/facturas/actualizar/} + ${factura.numeroFactura}"
+                            th:text="Editar" title="Editar factura" role="button"></a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" th:href="@{/facturas/eliminar/} + ${factura.numeroFactura}"
+                            th:text="Eliminar" title="Eliminar factura" role="button"></a>
+                    </td>
                 </tr>
             </tbody>
         </table>
-        <div class="text-right">
+        <div class="text-left">
             <a class="btn btn-warning" href="/" role="button">Regresar al menú</a>
         </div>
 </body>
