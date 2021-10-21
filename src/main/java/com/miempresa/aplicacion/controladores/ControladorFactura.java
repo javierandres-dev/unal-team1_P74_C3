@@ -7,6 +7,8 @@ import com.miempresa.aplicacion.modelos.Producto;
 import com.miempresa.aplicacion.modelos.RepositorioProducto;
 import com.miempresa.aplicacion.modelos.RepositorioVendedor;
 import com.miempresa.aplicacion.modelos.Vendedor;
+import java.util.ArrayList;
+import java.util.List;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,32 +65,29 @@ public class ControladorFactura {
        if (facturaGuardada == null){
            return new RedirectView("/crear/factura/",true);
        }
-       return new RedirectView("/facturas/"+facturaGuardada.getNumeroFactura(),true);
+       return new RedirectView("/facturas/",true);
        
     }  
 
     @GetMapping("/eliminar/factura/{idVenta}") //path del controlador
-    public RedirectView eliminarFactura(@PathVariable Long idVenta) {
+    public RedirectView eliminarFactura(@PathVariable String idVenta) {
         repositorioFactura.deleteById(idVenta);
         return new RedirectView("/facturas", true);
     }
-//    @GetMapping("/facturas/actualizar/{codigoFactura}") //path del controlador
-//    public String updateFacturaById(@PathVariable String codigoFactura, Model model) {
-//        List<String> listaFactura = new ArrayList<>();
-//        listaFactura.add(codigoFactura);
-//        Iterable<Factura> facturas = repositorioFactura.findAllById(listaFactura);
-//        model.addAttribute("facturas", facturas);
-//        return "vistaActualizarFactura";
-//    }
 
-//    @PostMapping("/facturas/actualizar/{codigoFactura}")
-//    public RedirectView postFactura(@ModelAttribute Factura factura) {
-//        Factura facturaGuardado;
-//        facturaGuardado = repositorioFactura.save(factura);
-//        if (facturaGuardado == null) {
-//            return new RedirectView("/crear/factura", true);
-//        }
-//        return new RedirectView("/facturas/" + facturaGuardado.getCodFactura(), true);
-//    }
+    @GetMapping("/actualizar/factura/{idVenta}") //path del controlador
+    public String updateFacturaById(@PathVariable String idVenta, Model model) {
+        List<String> listaFactura = new ArrayList<>();
+        listaFactura.add(idVenta);
+        Iterable<Factura> facturas = repositorioFactura.findAllById(listaFactura);
+        model.addAttribute("facturas", facturas);
+        return "vistaActualizarFactura";
+    }
+    
+    @PostMapping("/actualizar/factura/{idVenta}")
+    public RedirectView updateFactura(@ModelAttribute Factura factura) {
+        repositorioFactura.save(factura);
+        return new RedirectView("/facturas", true);
+    }
     
 }

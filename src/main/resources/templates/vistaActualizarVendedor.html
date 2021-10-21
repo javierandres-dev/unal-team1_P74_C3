@@ -37,11 +37,12 @@
             </tbody>
         </table>
 
-    <form method="post">
+    <form th:each="vendedor:${vendedores}" th:action="@{/actualizar/vendedor/{codigoVendedor}}" th:object="${vendedor}" method="post">
       <div class="form-row">
         <div class="offset-3 col-6 p-1">
           <input type="text" id="nombrevendedor" class="form-control" placeholder="Nombre vendedor"
-            >
+                        >
+                        <!--th:value="${vendedor.nombreVendedor}">-->
         </div>
       </div>
     </form>

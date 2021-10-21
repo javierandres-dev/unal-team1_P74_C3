@@ -20,9 +20,9 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Código producto</th>
                     <th scope="col">Fecha venta</th>
                     <th scope="col">Código vendedor</th>
+                    <th scope="col">Código producto</th>
                     <th scope="col">Valor factura</th>
  
                 </tr>
@@ -35,32 +35,36 @@
         </p>
     </h3>
 
-                    <td th:text="${factura.producto}" />
                     <td th:text="${factura.fechaVenta}" />
                     <td th:text="${factura.vendedor}" />
+                    <td th:text="${factura.producto}" />
                     <td th:text="${factura.valorFactura}" />
  
                 </tr>
             </tbody>
         </table>
 
-    <form method="post">
+    <form th:each="factura:${facturas}" th:action="@{/actualizar/factura/{idVenta}}" th:object="${factura}" method="post">
       <div class="form-row">
         <div class="offset-3 col-6 p-1">
-          <input type="text" id="producto" class="form-control" placeholder="Producto"
-            >
-        </div>
-        <div class="offset-3 col-6 p-1">
-          <input type="text" id="fechaVenta" class="form-control" placeholder="Fecha de venta"
-            >
+          <input type="date" id="fechaVenta" class="form-control" placeholder="Fecha de venta"
+                        >
+                        <!--th:value="${factura.fechaVenta}">-->
         </div>
         <div class="offset-3 col-6 p-1">
           <input type="text" id="vendedor" class="form-control" placeholder="Vendedor"
-            >
+                        >
+                        <!--th:value="${factura.vendedor}">-->
+        </div>
+        <div class="offset-3 col-6 p-1">
+          <input type="text" id="producto" class="form-control" placeholder="Producto"
+                        >
+                        <!--th:value="${factura.producto}">-->
         </div>
         <div class="offset-3 col-6 p-1">
           <input type="text" id="valorFactura" class="form-control" placeholder="Precio factura"
-            >
+                        >
+                        <!--th:value="${factura.valorFactura}">-->
       </div>
     </form>
         <div class="offset-4 col-4 my-2 text-center">

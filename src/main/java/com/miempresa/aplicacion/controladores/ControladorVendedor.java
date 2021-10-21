@@ -48,31 +48,28 @@ public class ControladorVendedor {
         if (vendedorGuardado == null) {
             return new RedirectView("/crear/vendedor", true);
         }
-        return new RedirectView("/vendedores/" + vendedorGuardado.getCodVendedor(), true);
+        return new RedirectView("/vendedores/", true);
     }
 
-    @PostMapping("/vendedores/actualizar/{codigoVendedor}")
-    public RedirectView postVendedor(@ModelAttribute Vendedor Vendedor) {
-        Vendedor VendedorGuardado;
-        VendedorGuardado = repositorioVendedor.save(Vendedor);
-        if (VendedorGuardado == null) {
-            return new RedirectView("/crear/Vendedor", true);
-        }
-        return new RedirectView("/vendedores/" + VendedorGuardado.getCodVendedor(), true);
-    }
-
-    @GetMapping("/vendedores/eliminar/{codigoVendedor}") //path del controlador
-    public String removeVendedorById(@PathVariable String codigoVendedor, Model model) {
-        List<String> listaVendedor = new ArrayList<>();
-        listaVendedor.add(codigoVendedor);
-        Iterable<Vendedor> vendedores = repositorioVendedor.findAllById(listaVendedor);
-        model.addAttribute("vendedores", vendedores);
-        return "vistaEliminarVendedor";
-    }
 
     @GetMapping("/eliminar/vendedor/{codigoVendedor}") //path del controlador
     public RedirectView eliminarVendedor(@PathVariable String codigoVendedor) {
         repositorioVendedor.deleteById(codigoVendedor);
+        return new RedirectView("/vendedores", true);
+    }
+    
+    @GetMapping("/actualizar/vendedor/{codigoVendedor}") //path del controlador
+    public String updateVendedorById(@PathVariable String codigoVendedor, Model model) {
+        List<String> listaVendedor = new ArrayList<>();
+        listaVendedor.add(codigoVendedor);
+        Iterable<Vendedor> vendedores = repositorioVendedor.findAllById(listaVendedor);
+        model.addAttribute("vendedores", vendedores);
+        return "vistaActualizarVendedor";
+    }
+
+    @PostMapping("/actualizar/vendedor/{codigoVendedor}")
+    public RedirectView updateVendedor(@ModelAttribute Vendedor vendedor) {
+        repositorioVendedor.save(vendedor);
         return new RedirectView("/vendedores", true);
     }
 }

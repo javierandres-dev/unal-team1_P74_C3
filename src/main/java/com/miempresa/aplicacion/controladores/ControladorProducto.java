@@ -51,7 +51,13 @@ public class ControladorProducto {
         if (productoGuardado == null) {
             return new RedirectView("/crear/producto", true);
         }
-        return new RedirectView("/productos/" + productoGuardado.getCodProducto(), true);
+        return new RedirectView("/productos/", true);
+    }
+
+    @GetMapping("/eliminar/producto/{codigoProducto}") //path del controlador
+    public RedirectView eliminarProducto(@PathVariable String codigoProducto) {
+        repositorioProducto.deleteById(codigoProducto);
+        return new RedirectView("/productos", true);
     }
 
     @GetMapping("/actualizar/producto/{codigoProducto}") //path del controlador
@@ -63,17 +69,9 @@ public class ControladorProducto {
         return "vistaActualizarProducto";
     }
 
-    @PostMapping("/actualizar/producto/")
+    @PostMapping("/actualizar/producto/{codigoProducto}")
     public RedirectView updateProducto(@ModelAttribute Producto producto) {
         repositorioProducto.save(producto);
         return new RedirectView("/productos", true);
     }
-    
-   
-    @GetMapping("/eliminar/producto/{codigoProducto}") //path del controlador
-    public RedirectView eliminarProducto(@PathVariable String codigoProducto) {
-        repositorioProducto.deleteById(codigoProducto);
-        return new RedirectView("/productos", true);
-    }
-
 }

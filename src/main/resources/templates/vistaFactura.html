@@ -41,7 +41,7 @@
                     <td th:text="${factura.producto.codProducto}" />
                     <td th:text="${factura.producto.precioProducto}" />
                     <td>
-                        <a class="btn btn-success" th:href="@{/facturas/actualizar/} + ${factura.idVenta}"
+                        <a class="btn btn-success" th:href="@{/actualizar/factura/} + ${factura.idVenta}"
                             th:text="Editar" title="Editar factura" role="button"></a>
                     </td>
                     <td>
