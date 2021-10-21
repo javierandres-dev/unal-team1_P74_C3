@@ -41,13 +41,14 @@ public class ControladorVendedor {
         return "vistaCrearVendedor";
     }
     
-    @GetMapping("/vendedores/actualizar/{codigoVendedor}") //path del controlador
-    public String updateVendedorById(@PathVariable String codigoVendedor, Model model) {
-        List<String> listaVendedor = new ArrayList<>();
-        listaVendedor.add(codigoVendedor);
-        Iterable<Vendedor> vendedores = repositorioVendedor.findAllById(listaVendedor);
-        model.addAttribute("vendedores", vendedores);
-        return "vistaActualizarVendedor";
+    @PostMapping("/crear/vendedor")
+    public RedirectView procesarVendedor(@ModelAttribute Vendedor vendedor) {
+        Vendedor vendedorGuardado;
+        vendedorGuardado = repositorioVendedor.save(vendedor);
+        if (vendedorGuardado == null) {
+            return new RedirectView("/crear/vendedor", true);
+        }
+        return new RedirectView("/vendedores/" + vendedorGuardado.getCodVendedor(), true);
     }
 
     @PostMapping("/vendedores/actualizar/{codigoVendedor}")
@@ -67,5 +68,11 @@ public class ControladorVendedor {
         Iterable<Vendedor> vendedores = repositorioVendedor.findAllById(listaVendedor);
         model.addAttribute("vendedores", vendedores);
         return "vistaEliminarVendedor";
+    }
+
+    @GetMapping("/eliminar/vendedor/{codigoVendedor}") //path del controlador
+    public RedirectView eliminarVendedor(@PathVariable String codigoVendedor) {
+        repositorioVendedor.deleteById(codigoVendedor);
+        return new RedirectView("/vendedores", true);
     }
 }

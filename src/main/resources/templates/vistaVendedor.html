@@ -14,17 +14,8 @@
 
 <body>
     <div class="container">
-        <header>
-            <div class="row">
-                <div class="offset-2 col-4">
-                    <h1 class="text-center m-2">
-                        The team 1 - Factory
-                    </h1>
-                </div>
-                <div class="div-logo col-4 text-center">
+        <header class="text-center">
                     <img id="logo-empresa" class="img-fluid" src="/images/logo_empresa.png" alt="" />
-                </div>
-            </div>
         </header>
         <h2 class="mb-3">
             Listado de vendedores
@@ -44,11 +35,11 @@
                     <td th:text="${vendedor.codVendedor}" />
                     <td th:text="${vendedor.nombreVendedor}" />
                     <td>
-                        <a class="btn btn-success" th:href="@{/vendedores/actualizar/} + ${vendedor.codVendedor}"
+                        <a class="btn btn-success" th:href="@{/actualizar/vendedor/} + ${vendedor.codVendedor}"
                             th:text="Editar" title="Editar vendedor" role="button"></a>
                     </td>
                     <td>
-                        <a class="btn btn-danger" th:href="@{/vendedores/eliminar/} + ${vendedor.codVendedor}"
+                        <a class="btn btn-danger" th:href="@{/eliminar/vendedor/} + ${vendedor.codVendedor}"
                             th:text="Eliminar" title="Eliminar vendedor" role="button"></a>
                     </td>
                 </tr>

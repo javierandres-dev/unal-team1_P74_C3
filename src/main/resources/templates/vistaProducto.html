@@ -14,17 +14,8 @@
 
 <body>
     <div class="container">
-        <header>
-            <div class="row">
-                <div class="offset-2 col-4">
-                    <h1 class="text-center m-2">
-                        The team 1 - Factory
-                    </h1>
-                </div>
-                <div class="div-logo col-4 text-center">
+        <header class="text-center">
                     <img id="logo-empresa" class="img-fluid" src="/images/logo_empresa.png" alt="" />
-                </div>
-            </div>
         </header>
         <h2 class="mb-3">
             Listado de productos
@@ -48,11 +39,11 @@
                     <td th:text="${producto.descripcionProducto}" />
                     <td th:text="${producto.precioProducto}" />
                     <td>
-                        <a class="btn btn-success" th:href="@{/productos/actualizar/} + ${producto.codProducto}"
+                        <a class="btn btn-success" th:href="@{/actualizar/producto/} + ${producto.codProducto}"
                             th:text="Editar" title="Editar producto" role="button"></a>
                     </td>
                     <td>
-                        <a class="btn btn-danger" th:href="@{/productos/eliminar/} + ${producto.codProducto}"
+                        <a class="btn btn-danger" th:href="@{/eliminar/producto/} + ${producto.codProducto}"
                             th:text="Eliminar" title="Eliminar producto" role="button"></a>
                     </td>
                 </tr>

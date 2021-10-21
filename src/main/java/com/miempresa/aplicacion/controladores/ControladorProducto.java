@@ -54,7 +54,7 @@ public class ControladorProducto {
         return new RedirectView("/productos/" + productoGuardado.getCodProducto(), true);
     }
 
-    @GetMapping("/productos/actualizar/{codigoProducto}") //path del controlador
+    @GetMapping("/actualizar/producto/{codigoProducto}") //path del controlador
     public String updateProductoById(@PathVariable String codigoProducto, Model model) {
         List<String> listaProducto = new ArrayList<>();
         listaProducto.add(codigoProducto);
@@ -63,23 +63,21 @@ public class ControladorProducto {
         return "vistaActualizarProducto";
     }
 
-    @PostMapping("/productos/actualizar/{codigoProducto}")
-    public RedirectView postProducto(@ModelAttribute Producto producto) {
-        Producto productoGuardado;
-        productoGuardado = repositorioProducto.save(producto);
-        if (productoGuardado == null) {
-            return new RedirectView("/crear/producto", true);
+    @PostMapping("/actualizar/producto/")
+    public RedirectView updateProducto(@ModelAttribute Producto producto) {
+        Producto productoActualizado;
+        productoActualizado = repositorioProducto.save(producto);
+        if (productoActualizado == null) {
+            return new RedirectView("/actualizar/producto/{codigoProducto}", true);
         }
-        return new RedirectView("/productos/" + productoGuardado.getCodProducto(), true);
+        return new RedirectView("/productos/" + productoActualizado.getCodProducto(), true);
     }
     
-    @GetMapping("/productos/eliminar/{codigoProducto}") //path del controlador
-    public String removeProductoById(@PathVariable String codigoProducto, Model model) {
-        List<String> listaProducto = new ArrayList<>();
-        listaProducto.add(codigoProducto);
-        Iterable<Producto> productos = repositorioProducto.findAllById(listaProducto);
-        model.addAttribute("productos", productos);
-        return "vistaEliminarProducto";
+   
+    @GetMapping("/eliminar/producto/{codigoProducto}") //path del controlador
+    public RedirectView eliminarProducto(@PathVariable String codigoProducto) {
+        repositorioProducto.deleteById(codigoProducto);
+        return new RedirectView("/productos", true);
     }
 
 }

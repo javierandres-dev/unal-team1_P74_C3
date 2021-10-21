@@ -14,17 +14,8 @@
 
 <body>
     <div class="container">
-        <header>
-            <div class="row">
-                <div class="offset-2 col-4">
-                    <h1 class="text-center m-2">
-                        The team 1 - Factory
-                    </h1>
-                </div>
-                <div class="div-logo col-4 text-center">
+        <header class="text-center">
                     <img id="logo-empresa" class="img-fluid" src="/images/logo_empresa.png" alt="" />
-                </div>
-            </div>
         </header>
         <h2 class="my-3">
             <ul>
@@ -39,16 +30,16 @@
                         th:field="*{numeroFactura}">
                 </div>
                 <div class="offset-3 col-6 p-1">
-                    <input type="text" id="codigoproducto" class="form-control" placeholder="Código del producto"
-                        th:field="*{producto}">
-                </div>
-                <div class="offset-3 col-6 p-1">
-                    <input type="text" id="fechaventa" class="form-control" placeholder="Fecha de la venta"
+                    <input type="date" id="fechaventa" class="form-control" placeholder="Fecha de la venta"
                         th:field="*{fechaVenta}">
                 </div>
                 <div class="offset-3 col-6 p-1">
                     <input type="text" id="codigovendedor" class="form-control" placeholder="Código del vendedor"
-                        th:field="*{Vendedor}">
+                        th:field="*{codigoVendedor}">
+                </div>
+                <div class="offset-3 col-6 p-1">
+                    <input type="text" id="codigoproducto" class="form-control" placeholder="Código del producto"
+                        th:field="*{codigoProducto}">
                 </div>
                 <div class="offset-3 col-6 p-1">
                     <input type="text" id="valorFactura" class="form-control" placeholder="Precio del producto"
