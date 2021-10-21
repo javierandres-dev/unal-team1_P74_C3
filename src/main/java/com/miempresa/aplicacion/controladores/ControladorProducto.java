@@ -65,12 +65,8 @@ public class ControladorProducto {
 
     @PostMapping("/actualizar/producto/")
     public RedirectView updateProducto(@ModelAttribute Producto producto) {
-        Producto productoActualizado;
-        productoActualizado = repositorioProducto.save(producto);
-        if (productoActualizado == null) {
-            return new RedirectView("/actualizar/producto/{codigoProducto}", true);
-        }
-        return new RedirectView("/productos/" + productoActualizado.getCodProducto(), true);
+        repositorioProducto.save(producto);
+        return new RedirectView("/productos", true);
     }
     
    
